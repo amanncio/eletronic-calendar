@@ -1,0 +1,22 @@
+.navbar{
+    width: 100%;
+    height: 70px;
+    background-color: teal;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #fff;
+}
+
+.navbar a{
+    font-size: 22px;
+    margin: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar a:hover{
+    cursor: poiter;
+    color: #9680e2
+}
