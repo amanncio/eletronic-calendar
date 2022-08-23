@@ -21,16 +21,13 @@ h1{
 
 .register-form button{
     width:373px;
-    height: 35px;
+    height: 37px;
     background-color: teal;
-    color: #fff;
-    border: 1px solid teal;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .register-form button:hover{
-    background-color: rgb(6, 59, 59);
-    cursor: pointer;
+    background-color: rgb(6, 59, 59); 
 }
 
 .register-form input {

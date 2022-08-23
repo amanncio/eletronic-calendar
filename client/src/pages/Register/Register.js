@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import "./Register.css"
-
+import Button from "@mui/material/Button"
 
 import Axios from "axios";
 const Register = () => {
@@ -33,7 +33,7 @@ const Register = () => {
               setPassword(event.target.value);
             }}  
           />
-          <button onClick={register}>Cadastrar</button>
+          <Button onClick={register} variant="contained" color="success">Cadastrar</Button>
       </div>
     </div>
   )
