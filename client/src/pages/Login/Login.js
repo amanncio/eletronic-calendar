@@ -3,12 +3,17 @@ import { Button } from '@mui/material';
 import "./Longin.css"
 import Axios from "axios"
 
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const [errorMessage, seterrorMessage] = useState("")
+
+  let navigate = useNavigate();
+
   const login = () => {
+    
     Axios.post("http://localhost:3001/user/login", {
       username: username,
       password: password,
@@ -16,6 +21,7 @@ const Login = () => {
       if(response.data.loggedIn){
         localStorage.setItem("loggedIn", true);
         localStorage.setItem("username", response.data.username);
+        navigate("/");
       } else{
         seterrorMessage(response.data.message)
       }
