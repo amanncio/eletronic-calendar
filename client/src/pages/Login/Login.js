@@ -5,10 +5,12 @@ import Axios from "axios"
 
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, seterrorMessage] = useState("")
+  // const [loggedIn, setLoggedIn] = useState(userLogged ?? false);
+
 
   let navigate = useNavigate();
 
@@ -19,11 +21,13 @@ const Login = () => {
       password: password,
     }).then((response) => {
       if(response.data.loggedIn){
-        localStorage.setItem("loggedIn", true);
-        localStorage.setItem("username", response.data.username);
-        navigate("/");
+        console.log(props)
+        // localStorage.setItem("loggedIn", true);
+        // localStorage.setItem("username", response.data.username);
+        props.setLoggedIn(true);
+        navigate("/upload");
       } else{
-        seterrorMessage(response.data.message)
+        seterrorMessage(response.data.message);
       }
     });
   };

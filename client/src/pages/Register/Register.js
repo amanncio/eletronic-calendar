@@ -12,13 +12,13 @@ const Register = () => {
       username: username,
       password: password,
     }).then((response) => {
-      console.log(response);
+      alert(`Olá ${username} seu cadastro foi realizado com suceso!`);
     });
   };
 
   return (
     <div className='register'>
-      <h1>Faça seu <span>cadastro</span></h1>
+      <h1>Faça seu cadastro</h1>
       <div className='register-form'>
           <input
             type="text"

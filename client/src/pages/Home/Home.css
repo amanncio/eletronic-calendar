@@ -1,0 +1,14 @@
+.text-home{
+    margin: 0 auto;
+    max-width:1200px;
+    margin-top: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.text-home p{
+    margin-bottom: 30px;
+}
+
+h2{
+    color: grey;
+}
