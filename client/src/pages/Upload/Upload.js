@@ -2,23 +2,35 @@ import React, { useState } from 'react'
 import "./Upload.css"
 import { Button } from '@mui/material'
 import Axios from "axios"
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Upload = (props) => {
+
+    //Variáveis 
     const [activityName, setActivityName] = useState(""); 
     const [description, setDescription] = useState(""); 
-    const [startDate, setStartDate] = useState("")
-    const [endDate, setEndDate] = useState("")
-    const [status, setStatus] = useState("")
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [status, setStatus] = useState("");
+    
+
+    //DatePicker
+    // const [startDate, setStartDate] = useState(new Date());
+
     
     //TESTES
     // if(props.loggedIn == true) {
     //     console.log("test")
     // }
 
-    const upload = () => {
+    const onChangeSelect = (event) => {
+        setStatus(event.target.value)
+        console.log(event.target.value)
+    }
 
-        Axios.post("http://localhost:3001/user/upload", {
+    const upload = () => {
+        Axios.post("http://localhost:3001/upload/atividade", {
             activityName: activityName,
             description: description,
             startDate: startDate,
@@ -46,17 +58,23 @@ const Upload = (props) => {
                     setDescription(event.target.value);
                 }}  
             />
+            
+            <span className='span-mt'>Data de Início:</span>
+            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+            <span>Data de Término:</span>
+            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+
             <div className='select'>
                 <span>Status:</span>
-                <select>
+                <select required defaultValue="status" id="status" onChange={onChangeSelect}>
                     {/* <option disabled value="v1">Status</option> */}
-                    <option value="v2">Pendente</option>
-                    <option value="v3">Concluída</option>
-                    <option value="v4">Cancelada</option>
+                    <option disabled value="status">Escolha o status da atividade</option>
+                    <option value="pendente">Pendente</option>
+                    <option value="concluida">Concluída</option>
+                    <option value="cancelada">Cancelada</option>
                 </select>
             </div>
             
-
             <Button className='btn-calendar' onClick={upload} variant="contained" color="success">Agendar</Button>
         </div>
     </div>
