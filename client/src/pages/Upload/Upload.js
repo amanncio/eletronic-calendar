@@ -46,17 +46,18 @@ const Upload = (props) => {
                     setDescription(event.target.value);
                 }}  
             />
-            {/* <div className='select'>
-                <select name="select">
-                    <option selected disabled value="v1">Status</option>
+            <div className='select'>
+                <span>Status:</span>
+                <select>
+                    {/* <option disabled value="v1">Status</option> */}
                     <option value="v2">Pendente</option>
                     <option value="v3">Concluída</option>
                     <option value="v4">Cancelada</option>
                 </select>
-            </div> */}
+            </div>
             
 
-            <Button onClick={upload} variant="contained" color="success">Agendar</Button>
+            <Button className='btn-calendar' onClick={upload} variant="contained" color="success">Agendar</Button>
         </div>
     </div>
   )

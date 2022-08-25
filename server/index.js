@@ -8,8 +8,9 @@ app.use(express.json());
 const userRoute = require("./routes/User");
 app.use("/user", userRoute);
 
-const userRouteUp = require("./routes/Upload");
-app.use("/user", userRouteUp);
+
+// const uploadRoute = require("./routes/Upload")
+// app.use("/upload", uploadRoute);
 
 
 app.listen(3001, (req, res) => {
