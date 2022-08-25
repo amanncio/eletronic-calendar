@@ -5,6 +5,29 @@ import Axios from "axios"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+
+//Calendário
+import format from "date-fns/format";
+import getDay from "date-fns/getDay";
+import parse from "date-fns/parse";
+import startOfWeek from "date-fns/startOfWeek";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+
+const locales = {
+    "pt-BR": require("date-fns/locale/pt-BR"),
+};
+
+const localizer = dateFnsLocalizer({
+    format,
+    parse,
+    startOfWeek,
+    getDay,
+    locales,
+})
+//Calendario - Fim
+
+
 const Upload = (props) => {
 
     //Variáveis 
@@ -13,16 +36,6 @@ const Upload = (props) => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [status, setStatus] = useState("");
-    
-
-    //DatePicker
-    // const [startDate, setStartDate] = useState(new Date());
-
-    
-    //TESTES
-    // if(props.loggedIn == true) {
-    //     console.log("test")
-    // }
 
     const onChangeSelect = (event) => {
         setStatus(event.target.value)
@@ -37,47 +50,56 @@ const Upload = (props) => {
             endDate: endDate,
             status: status,
         }).then(() => {
-            console.log("Deu bom!!")
+            alert(`${activityName} agendado(a) com sucesso!!!`)
         });
     };
 
-  return (
-    <div className='upload'>
-        <h1>Agende Uma Atividade</h1>
-        <div className='upload-form'>
-            <input
-                type="text"
-                placeholder="Nome da Atividade"
-                onChange={(event) => {
-                    setActivityName(event.target.value);
-                }}
-            />
-            <input type="text"
-                placeholder="Descrição..."
-                onChange={(event) => {
-                    setDescription(event.target.value);
-                }}  
-            />
-            
-            <span className='span-mt'>Data de Início:</span>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-            <span>Data de Término:</span>
-            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+    return (
+        <div className='upload'>
+            <h1>Agende Uma Atividade</h1>
+            <div className='upload-form'>
+                <input
+                    type="text"
+                    placeholder="Nome da Atividade"
+                    onChange={(event) => {
+                        setActivityName(event.target.value)
+                        // ((e) => setNewEvent({ ...newEvent, activityName: e.target.value }))
+                    }}
+                />
+                <input type="text"
+                    placeholder="Descrição..."
+                    onChange={(event) => {
+                        setDescription(event.target.value);
+                    }}  
+                />
+                
+                <span className='span-mt'>Data de Início:</span>
+                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                <span>Data de Término:</span>
+                <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
 
-            <div className='select'>
-                <span>Status:</span>
-                <select required defaultValue="status" id="status" onChange={onChangeSelect}>
-                    {/* <option disabled value="v1">Status</option> */}
-                    <option disabled value="status">Escolha o status da atividade</option>
-                    <option value="pendente">Pendente</option>
-                    <option value="concluida">Concluída</option>
-                    <option value="cancelada">Cancelada</option>
-                </select>
+                <div className='select'>
+                    <span>Status:</span>
+                    <select required defaultValue="status" id="status" onChange={onChangeSelect}>
+                        <option disabled value="status">Escolha o status da atividade</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="concluida">Concluída</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select>
+                </div>
+                
+                <Button className='btn-calendar' onClick={upload} variant="contained" color="success">Agendar</Button>
             </div>
-            
-            <Button className='btn-calendar' onClick={upload} variant="contained" color="success">Agendar</Button>
+            <div className='calendar'>
+                <Calendar
+                    localizer={localizer}
+                    // events={allEvents} 
+                    startAccessor="start" 
+                    endAccessor="end" 
+                    style={{ height: 500, margin: "50px" }}
+                />
+            </div>
         </div>
-    </div>
   )
 }
 
