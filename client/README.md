@@ -1,6 +1,6 @@
 # Agenda Eletrônica / Eletronic Calendar
 
-Aplicação para cadastrar atividades numa agenda eletrônica.  
+Aplicação para cadastrar atividades numa agenda eletrônica, com possibilidade de criar editar e excluir.  
 OBS:Aplicação não finalizada.
 
 ## Tecnolocgias utilizadas e suas respectivas versões
