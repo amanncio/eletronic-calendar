@@ -1,12 +1,12 @@
 # Agenda Eletrônica / Eletronic Calendar
 
-Aplicação para cadastrar atividades numa agenda eletrônica.
+Aplicação para cadastrar atividades numa agenda eletrônica.  
 OBS:Aplicação não finalizada.
 
 ## Tecnolocgias utilizadas e suas respectivas versões
 
--React JS: 18.2.0
--Node JS: 16.13.0
+-React JS: 18.2.0  
+-Node JS: 16.13.0  
 -MySQL: 2.18.1
 
 ### `npm start`
@@ -21,9 +21,9 @@ Foi instalado o nodemon para rodar a API utilizando o comando "npm start", ou se
 
 ### `Atividades pendentes`
 
--Interação entre tabelas;
--Calendário(funcionalidade);
--Tratativa de erros;
+-Interação entre tabelas;  
+-Calendário(funcionalidade);  
+-Tratativa de erros;  
 -Design;
 
 
