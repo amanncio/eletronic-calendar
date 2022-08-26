@@ -15,6 +15,10 @@ A aplicação irá rodar no link a seguir [http://localhost:3000](http://localho
 
 ### `OBS:`
 
+Não esquecer de instalar o node_modules(dependências do projeto) utilizando o seguinte comando na aplicação frontend "npm install".
+
+### `OBS`
+
 Foi instalado o nodemon para rodar a API utilizando o comando "npm start", ou se preferir pode utilizar o comando "node index.js"
 
 **Quando rodar o comando "npm start" tanto no back quanto no front basta entrar neste link [http://localhost:3000](http://localhost:3000) e testar a aplicação**
