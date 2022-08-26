@@ -20,7 +20,7 @@ const Login = (props) => {
       password: password,
     }).then((response) => {
       if(response.data.loggedIn){
-        console.log(props);
+        // console.log(props);
         // localStorage.setItem("loggedIn", true);
         // localStorage.setItem("username", response.data.username);
         props.setLoggedIn(true);
